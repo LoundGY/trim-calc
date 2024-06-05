@@ -1,0 +1,72 @@
+[
+  {
+    "enName": "Baltic sea",
+    "plName": "Morze Bałtyckie",
+    "deName": "Ostsee",
+    "salt": 10,
+    "temperature": 10
+  },
+  {
+    "enName": "Red sea",
+    "plName": "Morze Czerwone",
+    "deName": "Rotes Meer",
+    "salt": 38,
+    "temperature": 25
+  },
+  {
+    "enName": "Mediterranian sea",
+    "plName": "Morze Śródziemne",
+    "deName": "Mittelmeer",
+    "salt": 38,
+    "temperature": 18
+  },
+  {
+    "enName": "Black Sea",
+    "plName": "Morze Czarne",
+    "deName": "Schwarzes Meer",
+    "salt": 18,
+    "temperature": 18
+  },
+  {
+    "enName": "World ocean",
+    "plName": "Ocean Światowy",
+    "deName": "Weltmeer",
+    "salt": 35,
+    "temperature": 10
+  },
+  {
+    "enName": "Yellow Sea",
+    "plName": "Morze Żółte",
+    "deName": "Gelbes Meer",
+    "salt": 30,
+    "temperature": 15
+  },
+  {
+    "enName": "Adriatic sea",
+    "plName": "Morze Adriatyckie",
+    "deName": "Adriatisches Meer",
+    "salt": 38,
+    "temperature": 20
+  },
+  {
+    "enName": "Factory trim",
+    "plName": "Fabryczne ustawienia",
+    "deName": "Werkseinstellung",
+    "salt": 0,
+    "temperature": 20
+  },
+  {
+    "enName": "Freshwater",
+    "plName": "Woda słodka",
+    "deName": "Süßwasser",
+    "salt": 0,
+    "temperature": 10
+  },
+  {
+    "enName": "Custom",
+    "plName": "Niestandardowe",
+    "deName": "Benutzerdefiniert",
+    "salt": 0,
+    "temperature": 0
+  }
+]

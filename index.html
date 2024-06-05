@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Seacraft</title>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="mainBlock">
+        <div class="mainBlock__head">
+            <div class="title">Seacraft DPV balance calculator</div>
+            <div class="top-buttons">
+                <button id="selectA" class="top-buttons__button active">Configuration A</button>
+                <button id="selectB" class="top-buttons__button">Configuration B</button>
+            </div>
+        </div>
+        <div id="howtouse" class="howtouse">
+            <div class="howtouse__title">How to use the calculator?</div>
+            <div class="howtouse__icon">?</div>
+        </div>
+        <div class="mainBlock__parameters">
+            <div class="left">
+                <div class="model">
+                    <span class="model__main">Model:</span>
+                    <div id="models" class="models">
+                    </div>
+
+                </div>
+                <div class="waterParam">
+                    <span>Water parameters:</span>
+                    <div class="selectboxss">
+                        <div class="selectboxssvalue"><input id="currentSea" readonly value="Water"></input><img
+                                src="./assets/images/icons/arrow.svg" class="arrowselect" />
+                        </div>
+                        <ul id="seas" class="selectboxssmenu">
+                        </ul>
+                    </div>
+                </div>
+                <div class="params">
+                    <div class="waterParameters">
+                        <span>Salt:</span><input id="seaSalt" class="waterParameters__input" type="text"><span>‰</span>
+                    </div>
+                    <div class="waterParameters">
+                        <span>Temp.:</span><input id="seaTemp" class="waterParameters__input"
+                            type="text"><span>°C</span>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="weight">Dry weight of DPV:<span class="right__span"><span id="scooter-weight"></span>
+                        kg</span><span class="right__span2">(Neutral buoyancy in fresh water)</span></div>
+                <div class="buoyancy">Current buoyancy:<span class="right__span"><span id="current-buouancy"></span>
+                        g</span>
+                </div>
+                <div class="ballast"><span id="ballastMove">Remove ballast:</span>
+                    <div id="no_go_ballast" class="details">
+                        <div class="detail"> <span class="right__span3"><span id="detail61"></span> x 65g</span><img
+                                src="./assets/images/icons/detail.svg" alt=""></div>
+                        <div class="detail">
+                            <span class="right__span3"><span id="detail200"></span> x 200g</span><img
+                                src="./assets/images/icons/detail.svg" alt="">
+                        </div>
+                    </div>
+                    <div id="go_ballast" class="details">
+                        <div class="detail"> <span class="right__span3"><span id="detail52"></span> x 52.5g</span><img
+                                src="./assets/images/icons/detail.svg" alt=""></div>
+                    </div>
+                </div>
+                <div id="foam-block" class="foam">
+
+                </div>
+            </div>
+        </div>
+        <div class="mainBlock__scooter">
+            <div class="scooter-images">
+                <div id="model" data-model></div>
+                <div id="bracket" data-bracket></div>
+                <div id="accesory" data-accesory></div>
+            </div>
+            <div class="scooter-points">
+                <div class="title">Choose mounting point:</div>
+                <div class="buttons">
+                    <div class="button active-btn" data-point="1">Mounting point 1</div>
+                    <div class="button" data-point="2">Mounting point 2</div>
+                    <div class="button" data-point="3">Mounting point 3</div>
+                </div>
+                <div id="reset" class="reset">Reset all</div>
+            </div>
+        </div>
+        <div class="mainblock__accessories">
+            <div class="title"> Accessories:</div>
+            <div id="accessories1" data-access="1" class="accessories accessories_active" data-scrollbar>
+            </div>
+            <div id="accessories2" data-access="2" class="accessories" data-scrollbar>
+            </div>
+            <div id="accessories3" data-access="3" class="accessories" data-scrollbar>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery/jquery.js" type="text/javascript" defer></script>
+    <script src="./js/perfect-scrollbar.js" type="text/javascript" defer> </script>
+    <script src="./js/tippy/1.js" type="text/javascript" defer></script>
+    <script src="./js/tippy/2.js" type="text/javascript" defer></script>
+    <script src="./js/language.js" type="text/javascript" defer></script>
+    <script src="./js/calculator.js" type="text/javascript" defer></script>
+</body>
+
+</html>

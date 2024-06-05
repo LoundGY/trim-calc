@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "model": "FUTURE",
+    "img": "/assets/images/scooters/1.png",
+    "weight": 15.9,
+    "weightInWater": 15.93,
+    "accessories": [1, 2, 3, 4, 7, 8, 9, 10, 11, 12]
+  },
+  {
+    "id": 2,
+    "model": "GHOST",
+    "img": "/assets/images/scooters/2.png",
+    "weight": 22.9,
+    "weightInWater": 22.94,
+    "accessories": [5, 6, 7, 8, 9, 10, 11, 12]
+  },
+  {
+    "id": 3,
+    "model": "GO",
+    "img": "/assets/images/scooters/3.png",
+    "weight": 9.8,
+    "weightInWater": 9.82,
+    "accessories": [1, 2, 3, 4, 8, 9]
+  }
+]

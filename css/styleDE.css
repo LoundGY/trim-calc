@@ -1,0 +1,13 @@
+@charset "UTF-8";
+#ballastMove{
+  	    width: 200px;
+  }
+@media (max-width: 705px) {
+  div.selectboxss {
+    width: 150px;
+  }
+  .mainBlock__parameters .waterParam {
+    width: 340px;
+  }
+
+}
