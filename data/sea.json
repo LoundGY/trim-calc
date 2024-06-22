@@ -59,7 +59,7 @@
     "enName": "Freshwater",
     "plName": "Woda słodka",
     "deName": "Süßwasser",
-    "salt": 0,
+    "salt": 0.5,
     "temperature": 10
   },
   {

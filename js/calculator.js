@@ -97,20 +97,26 @@ const acces = JSON.parse(
 const seas = JSON.parse(
   $.getJSON({ url: '../data/sea.json', async: false }).responseText
 );
-let currentBuoyancy = 0;
 let brackets = [[], [], []];
 let activeConfig = 'A';
 const configs = { A: {}, B: {} };
-const configA = {};
-const configB = {};
 let Seacraft = {
   config: {
     selectConfig: function (config) {
       activeConfig = config;
-      const currentConfig = JSON.parse(JSON.stringify(configs[config]));
       Seacraft.scooter.reset();
-      if (currentConfig['scooter'] !== undefined) {
-        $('.model__title')[currentConfig['scooter']].click();
+      if (config === 'B') {
+        $('.model').css('display', 'none');
+      } else {
+        $('.model').css('display', 'flex');
+      }
+      const currentConfig = JSON.parse(JSON.stringify(configs.A));
+      const scooterModel = configs.A.scooter;
+      if (config === 'A') {
+        $(`li.selectoption[data-seaId=${currentConfig.sea}]`).click();
+      }
+      if (scooterModel !== undefined) {
+        $('.model__title')[scooterModel].click();
         const access = currentConfig['accessories'];
         if (access?.length) {
           access.sort((a, b) => a.id - b.id);
@@ -149,8 +155,24 @@ let Seacraft = {
       const active_scooter_id = $('.models')
         .find('.model__active')
         .attr('data-id');
-      const config = { scooter: +active_scooter_id, accessories: activeAccess };
+      const config = {
+        scooter: +active_scooter_id,
+        accessories: activeAccess,
+        sea: $('#currentSea').attr('data-seaid'),
+        currentBuoyancy: +$('#current-buouancy').text(),
+      };
+      if (activeConfig === 'B') {
+        config.accessories = [];
+      }
       configs[activeConfig] = config;
+      if (activeConfig === 'B') {
+        $('.trimmed-block').css('display', 'flex');
+        $('#trimmed-buouancy').text(
+          configs.A.currentBuoyancy ? configs.A.currentBuoyancy : 0
+        );
+      } else {
+        $('.trimmed-block').css('display', 'none');
+      }
     },
   },
   countBuoyancy: function () {
@@ -177,8 +199,10 @@ let Seacraft = {
     }
     let scooter_weight = models[active_scooter_id].weight * 1000,
       scooter_volume = (models[active_scooter_id].weight / 0.998) * 1000;
-    let scooter_buoyancy =
-      (Number(scooter_volume) * Number(waterDensity)) / 1000;
+    let scooter_buoyancy = +(
+      (Number(scooter_volume) * Number(waterDensity)) /
+      1000
+    ).toFixed(3);
     let acc_weight = 0;
     let acc_buoyancy = 0;
     let acs = Array.from($('#accesory').find('img'));
@@ -204,6 +228,9 @@ let Seacraft = {
       scooter_buoyancy_with_acces =
         Number(scooter_buoyancy) + Number(acc_buoyancy);
     let currentBuoy = scooter_weight_with_acces - scooter_buoyancy_with_acces;
+    if (activeConfig === 'B') {
+      currentBuoy += configs.A.currentBuoyancy;
+    }
     $('#current-buouancy').text(Math.round(-currentBuoy));
     let internalBallastToAdd = -currentBuoy;
     let Internal1mmPlateWeight = 65,
@@ -233,15 +260,18 @@ let Seacraft = {
       if (foamPieces > 0 && active_scooter_id < 2) {
         $('#foam-block').html('');
         $('#foam-block').append(
-          '<span>Or add:</span><div class="foam-parts"><div class="foam__quan"><span id="foam-weight"></span>g (<span id="foam-quan"></span>/3)</div><img src="../assets/images/icons/foam.png" alt=""><div class="foam__with">foam with</div><img src="../assets/images/icons/belt.png" alt=""></div>'
+          '<span class="first-part-of-text">Or add:</span><div class="foam-parts"><div class="foam__quan"><span id="foam-weight"></span>g (<span id="foam-quan"></span>/3)</div><img src="../assets/images/icons/foam.png" alt=""><div class="foam__with">foam with</div><img src="../assets/images/icons/belt.png" alt=""></div>'
         );
         $('#foam-quan').text(foamPieces);
         $('#foam-weight').text(35 * foamPieces - 20);
+        $('#foam-block').css('display', 'flex');
       } else {
         $('#foam-block').html('');
+        $('#foam-block').css('display', 'none');
       }
     } else {
       $('#foam-block').html('');
+      $('#foam-block').css('display', 'none');
     }
     if (Math.round(currentBuoy) < 0) {
       $('#ballastMove').text(words.Add_ballast);
@@ -251,6 +281,7 @@ let Seacraft = {
     $('#detail61').text(Math.abs(internal1mmPlates));
     $('#detail200').text(Math.abs(internal3mmPlates));
     $('#detail52').text(Math.abs(internalPlatesForGo));
+    Seacraft.config.saveConfig();
   },
   sea: {
     load: function () {
@@ -297,7 +328,7 @@ let Seacraft = {
         }
         Seacraft.countBuoyancy();
       });
-      $('li.selectoption[data-seaId=8]').click();
+      $('li.selectoption[data-seaId=7]').click();
     },
   },
   scooter: {
@@ -338,7 +369,6 @@ let Seacraft = {
       $('.accessories')
         .find('.accessories__items')
         .removeClass('active-access');
-      Seacraft.countBuoyancy();
     },
     select: function (scooter) {
       $('#modelIMG').remove();
@@ -369,6 +399,7 @@ let Seacraft = {
       }
 
       Seacraft.config.saveConfig();
+      Seacraft.countBuoyancy();
     },
   },
   accessories: {
@@ -590,11 +621,11 @@ let Seacraft = {
                     $('.mainblock__accessories')
                       .find(`[data-tippy-root]`)
                       .remove();
-                    elems[0]._tippy.destroy();
+                    elems[0]._tippy?.destroy();
                   },
                   onClickOutside() {
                     $(elems[0]).removeClass('active-access');
-                    elems[0]._tippy.destroy();
+                    elems[0]._tippy?.destroy();
                   },
                 });
               }
@@ -723,6 +754,7 @@ let Seacraft = {
         });
       }
       Seacraft.config.saveConfig();
+      Seacraft.countBuoyancy();
     },
     choiseWithSecond: function (
       point,
@@ -901,14 +933,14 @@ let Seacraft = {
       Seacraft.howtouse();
     });
     $('#selectA').click(function () {
-      $('.top-buttons__button').removeClass('active');
-      $(this).addClass('active');
-      Seacraft.config.selectConfig('A');
+      $('#selectB').addClass('active');
+      $(this).removeClass('active');
+      Seacraft.config.selectConfig('B');
     });
     $('#selectB').click(function () {
-      $('.top-buttons__button').removeClass('active');
-      $(this).addClass('active');
-      Seacraft.config.selectConfig('B');
+      $('#selectA').addClass('active');
+      $(this).removeClass('active');
+      Seacraft.config.selectConfig('A');
     });
   },
 };

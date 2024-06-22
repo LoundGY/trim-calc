@@ -10,8 +10,10 @@ body {
 }
 
 div.selectboxss {
+    top: 0;
+    right: 0;
     width: 222px;
-    position: relative;
+    position: absolute;
     height: 36px;
     border-radius: 18px;
     border: solid 1px #707070;
@@ -20,7 +22,6 @@ div.selectboxss {
     cursor: pointer;
     overflow: hidden;
     transition: 0.3s;
-    top: -7px;
     z-index: 1;
     @media (max-width: 705px) {
         width: 180px;
@@ -119,7 +120,7 @@ input {
             gap: 10px;
 
             &__button {
-                display: flex;
+                display: none;
                 align-items: center;
                 justify-content: center;
                 background: transparent;
@@ -128,10 +129,16 @@ input {
                 font-size: 20px;
                 cursor: pointer;
                 color: #000000;
+                border: 3px solid #fcc202;
+                border-radius: 10px;
+                padding: 10px;
 
-                &.active,
+                &.active {
+                    display: flex;
+                }
+
                 &:hover {
-                    border-bottom: 3px solid #fcc202;
+                    background: rgb(0 0 0 / 11%);
                 }
             }
         }
@@ -193,20 +200,22 @@ input {
         margin-top: 50px;
         display: flex;
         width: 100%;
+        justify-content: space-between;
+
         .left {
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-            justify-content: space-between;
-            width: 433px;
-            height: 130px;
-            margin-right: 190px;
+            justify-content: end;
+            gap: 20px;
+            min-height: 138px;
             @media (max-width: 1320px) {
                 margin-bottom: 25px;
             }
         }
+
         .model {
-            height: 22px;
+            min-height: 22px;
             line-height: 22px;
             display: flex;
             font-size: 18px;
@@ -232,10 +241,12 @@ input {
             }
         }
         .waterParam {
+            position: relative;
             width: 433px;
             display: flex;
             justify-content: space-between;
-            height: 22px;
+            align-items: center;
+            height: 36px;
             color: #707070;
             line-height: 22px;
             font-weight: bold;
@@ -247,7 +258,7 @@ input {
         }
         .params {
             width: 378px;
-            height: 22px;
+            min-height: 22px;
             display: flex;
             justify-content: space-between;
             @media (max-width: 705px) {
@@ -260,8 +271,9 @@ input {
         .waterParameters {
             display: flex;
             width: 170px;
-            height: 22px;
+            min-height: 22px;
             justify-content: space-between;
+            align-items: center;
             line-height: 22px;
             &__input {
                 box-sizing: border-box;
@@ -274,7 +286,6 @@ input {
                 font-weight: 500;
                 border-radius: 18px;
                 position: relative;
-                top: -7px;
                 outline: none;
                 font-family: "Montserrat", Sans-serif;
             }
@@ -283,55 +294,120 @@ input {
             }
         }
         .right {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            width: 608px;
+            display: grid;
+            grid-template-rows: 1fr;
+            align-items: center;
             font-weight: 500;
-            height: 184px;
+            gap: 20px;
+            color: #000000;
+
+            &__span {
+                white-space: nowrap;
+            }
+            .first-part-of-text {
+                width: 160px;
+                display: flex;
+                align-items: center;
+                color: #707070;
+                @media (max-width: 705px) {
+                    justify-content: center;
+                }
+            }
             .weight {
                 position: relative;
                 width: 100%;
-                height: 22px;
+                min-height: 22px;
                 line-height: 22px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                @media (max-width: 705px) {
+                    justify-content: center;
+                    border-top: 1px solid #707070;
+                    border-bottom: 1px solid #707070;
+                    padding: 10px 5px;
+                }
             }
             .buoyancy {
                 position: relative;
                 width: 100%;
                 line-height: 22px;
-                height: 22px;
+                min-height: 22px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                @media (max-width: 705px) {
+                    justify-content: center;
+                    border-top: 1px solid #707070;
+                    border-bottom: 1px solid #707070;
+                    padding: 10px 5px;
+                }
+
+                &__actual {
+                    position: relative;
+                    display: flex;
+                    gap: 20px;
+
+                    &.trimmed-block {
+                        display: none;
+                    }
+                }
             }
             .ballast {
-                display: flex;
                 position: relative;
                 line-height: 22px;
                 width: 100%;
-                height: 22px;
+                min-height: 22px;
+                display: flex;
+                gap: 20px;
+                @media (max-width: 705px) {
+                    justify-content: center;
+                    border-top: 1px solid #707070;
+                    border-bottom: 1px solid #707070;
+                    padding: 10px 5px;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .details {
+                    gap: 20px;
+                    white-space: nowrap;
+                }
+                .detail {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                }
             }
             .foam {
-                display: flex;
                 position: relative;
-                flex-wrap: nowrap;
+                flex-wrap: wrap;
                 line-height: 22px;
                 width: 100%;
-                height: 22px;
+                min-height: 22px;
+                display: flex;
+                gap: 20px;
+                @media (max-width: 705px) {
+                    justify-content: center;
+                    border-top: 1px solid #707070;
+                    border-bottom: 1px solid #707070;
+                    padding: 10px 5px;
+                }
+
                 .foam-parts {
                     display: flex;
                     line-height: 22px;
-                    height: 22px;
-                    position: absolute;
+                    min-height: 22px;
+                    position: relative;
                     color: #000000;
+                    gap: 10px;
                     top: 0;
-                    left: 213px;
                     @media (max-width: 705px) {
                         flex-wrap: wrap;
-                        left: 165px;
                     }
                     img {
+                        width: 30px;
                         height: 22px;
-                        margin-left: 10px;
-                        margin-right: 10px;
                     }
                 }
                 &__quan {
@@ -342,50 +418,6 @@ input {
                     @media (max-width: 705px) {
                         width: 80px;
                     }
-                }
-            }
-            &__span-weight {
-                position: absolute;
-                width: 200px;
-            }
-            &__span {
-                position: absolute;
-                color: #000000;
-                left: 213px;
-                @media (max-width: 705px) {
-                    left: 165px;
-                }
-            }
-            &__span2 {
-                position: absolute;
-                left: 303px;
-                @media (max-width: 705px) {
-                    font-size: 14px;
-                    line-height: 16px;
-                    left: 245px;
-                }
-            }
-            &__span3 {
-                position: relative;
-                color: #000000;
-                margin-right: 5px;
-            }
-            .details {
-                display: flex;
-                position: absolute;
-                left: 213px;
-                white-space: nowrap;
-                .detail {
-                    height: 22px;
-                    display: flex;
-                    margin-right: 20px;
-                    img {
-                        position: relative;
-                    }
-                }
-                @media (max-width: 705px) {
-                    position: absolute;
-                    left: 165px;
                 }
             }
             @media (max-width: 705px) {

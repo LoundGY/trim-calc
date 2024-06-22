@@ -11,8 +11,10 @@ body {
 }
 
 div.selectboxss {
+  top: 0;
+  right: 0;
   width: 222px;
-  position: relative;
+  position: absolute;
   height: 36px;
   border-radius: 18px;
   border: solid 1px #707070;
@@ -21,7 +23,6 @@ div.selectboxss {
   cursor: pointer;
   overflow: hidden;
   transition: 0.3s;
-  top: -7px;
   z-index: 1;
 }
 @media (max-width: 705px) {
@@ -137,7 +138,7 @@ input {
   gap: 10px;
 }
 .mainBlock__head .top-buttons__button {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   background: transparent;
@@ -146,9 +147,15 @@ input {
   font-size: 20px;
   cursor: pointer;
   color: #000000;
+  border: 3px solid #fcc202;
+  border-radius: 10px;
+  padding: 10px;
 }
-.mainBlock__head .top-buttons__button.active, .mainBlock__head .top-buttons__button:hover {
-  border-bottom: 3px solid #fcc202;
+.mainBlock__head .top-buttons__button.active {
+  display: flex;
+}
+.mainBlock__head .top-buttons__button:hover {
+  background: rgba(0, 0, 0, 0.11);
 }
 .mainBlock__head .title {
   font-weight: bold;
@@ -218,16 +225,16 @@ input {
   margin-top: 50px;
   display: flex;
   width: 100%;
+  justify-content: space-between;
   margin-bottom: 83px;
 }
 .mainBlock__parameters .left {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
-  width: 433px;
-  height: 130px;
-  margin-right: 190px;
+  justify-content: end;
+  gap: 20px;
+  min-height: 138px;
 }
 @media (max-width: 1320px) {
   .mainBlock__parameters .left {
@@ -235,7 +242,7 @@ input {
   }
 }
 .mainBlock__parameters .model {
-  height: 22px;
+  min-height: 22px;
   line-height: 22px;
   display: flex;
   font-size: 18px;
@@ -263,10 +270,12 @@ input {
   }
 }
 .mainBlock__parameters .waterParam {
+  position: relative;
   width: 433px;
   display: flex;
   justify-content: space-between;
-  height: 22px;
+  align-items: center;
+  height: 36px;
   color: #707070;
   line-height: 22px;
   font-weight: bold;
@@ -280,7 +289,7 @@ input {
 }
 .mainBlock__parameters .params {
   width: 378px;
-  height: 22px;
+  min-height: 22px;
   display: flex;
   justify-content: space-between;
 }
@@ -295,8 +304,9 @@ input {
 .mainBlock__parameters .waterParameters {
   display: flex;
   width: 170px;
-  height: 22px;
+  min-height: 22px;
   justify-content: space-between;
+  align-items: center;
   line-height: 22px;
 }
 .mainBlock__parameters .waterParameters__input {
@@ -310,7 +320,6 @@ input {
   font-weight: 500;
   border-radius: 18px;
   position: relative;
-  top: -7px;
   outline: none;
   font-family: "Montserrat", Sans-serif;
 }
@@ -320,60 +329,130 @@ input {
   }
 }
 .mainBlock__parameters .right {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 608px;
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
   font-weight: 500;
-  height: 184px;
+  gap: 20px;
+  color: #000000;
+}
+.mainBlock__parameters .right__span {
+  white-space: nowrap;
+}
+.mainBlock__parameters .right .first-part-of-text {
+  width: 160px;
+  display: flex;
+  align-items: center;
+  color: #707070;
+}
+@media (max-width: 705px) {
+  .mainBlock__parameters .right .first-part-of-text {
+    justify-content: center;
+  }
 }
 .mainBlock__parameters .right .weight {
   position: relative;
   width: 100%;
-  height: 22px;
+  min-height: 22px;
   line-height: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+@media (max-width: 705px) {
+  .mainBlock__parameters .right .weight {
+    justify-content: center;
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+    padding: 10px 5px;
+  }
 }
 .mainBlock__parameters .right .buoyancy {
   position: relative;
   width: 100%;
   line-height: 22px;
-  height: 22px;
+  min-height: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+@media (max-width: 705px) {
+  .mainBlock__parameters .right .buoyancy {
+    justify-content: center;
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+    padding: 10px 5px;
+  }
+}
+.mainBlock__parameters .right .buoyancy__actual {
+  position: relative;
+  display: flex;
+  gap: 20px;
+}
+.mainBlock__parameters .right .buoyancy__actual.trimmed-block {
+  display: none;
 }
 .mainBlock__parameters .right .ballast {
-  display: flex;
   position: relative;
   line-height: 22px;
   width: 100%;
-  height: 22px;
+  min-height: 22px;
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 705px) {
+  .mainBlock__parameters .right .ballast {
+    justify-content: center;
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+    padding: 10px 5px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.mainBlock__parameters .right .ballast .details {
+  gap: 20px;
+  white-space: nowrap;
+}
+.mainBlock__parameters .right .ballast .detail {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 .mainBlock__parameters .right .foam {
-  display: flex;
   position: relative;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   line-height: 22px;
   width: 100%;
-  height: 22px;
+  min-height: 22px;
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 705px) {
+  .mainBlock__parameters .right .foam {
+    justify-content: center;
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+    padding: 10px 5px;
+  }
 }
 .mainBlock__parameters .right .foam .foam-parts {
   display: flex;
   line-height: 22px;
-  height: 22px;
-  position: absolute;
+  min-height: 22px;
+  position: relative;
   color: #000000;
+  gap: 10px;
   top: 0;
-  left: 213px;
 }
 @media (max-width: 705px) {
   .mainBlock__parameters .right .foam .foam-parts {
     flex-wrap: wrap;
-    left: 165px;
   }
 }
 .mainBlock__parameters .right .foam .foam-parts img {
+  width: 30px;
   height: 22px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 .mainBlock__parameters .right .foam__with {
   color: #707070;
@@ -381,56 +460,6 @@ input {
 @media (max-width: 705px) {
   .mainBlock__parameters .right .foam__with {
     width: 80px;
-  }
-}
-.mainBlock__parameters .right__span-weight {
-  position: absolute;
-  width: 200px;
-}
-.mainBlock__parameters .right__span {
-  position: absolute;
-  color: #000000;
-  left: 213px;
-}
-@media (max-width: 705px) {
-  .mainBlock__parameters .right__span {
-    left: 165px;
-  }
-}
-.mainBlock__parameters .right__span2 {
-  position: absolute;
-  left: 303px;
-}
-@media (max-width: 705px) {
-  .mainBlock__parameters .right__span2 {
-    font-size: 14px;
-    line-height: 16px;
-    left: 245px;
-  }
-}
-.mainBlock__parameters .right__span3 {
-  position: relative;
-  color: #000000;
-  margin-right: 5px;
-}
-.mainBlock__parameters .right .details {
-  display: flex;
-  position: absolute;
-  left: 213px;
-  white-space: nowrap;
-}
-.mainBlock__parameters .right .details .detail {
-  height: 22px;
-  display: flex;
-  margin-right: 20px;
-}
-.mainBlock__parameters .right .details .detail img {
-  position: relative;
-}
-@media (max-width: 705px) {
-  .mainBlock__parameters .right .details {
-    position: absolute;
-    left: 165px;
   }
 }
 @media (max-width: 705px) {

@@ -16,8 +16,8 @@
         <div class="mainBlock__head">
             <div class="title">Seacraft DPV balance calculator</div>
             <div class="top-buttons">
-                <button id="selectA" class="top-buttons__button active">Configuration A</button>
-                <button id="selectB" class="top-buttons__button">Configuration B</button>
+                <button id="selectA" class="top-buttons__button active">My DPV is trimmed in this configuration</button>
+                <button id="selectB" class="top-buttons__button">Cancel</button>
             </div>
         </div>
         <div id="howtouse" class="howtouse">
@@ -53,12 +53,22 @@
                 </div>
             </div>
             <div class="right">
-                <div class="weight">Dry weight of DPV:<span class="right__span"><span id="scooter-weight"></span>
+                <div class="weight"><span class="first-part-of-text">Dry weight of DPV:</span><span class="right__span"><span id="scooter-weight"></span>
                         kg</span><span class="right__span2">(Neutral buoyancy in fresh water)</span></div>
-                <div class="buoyancy">Current buoyancy:<span class="right__span"><span id="current-buouancy"></span>
+                <div class="buoyancy">
+                    <div class="buoyancy__actual">
+                        <span class="first-part-of-text">Current buoyancy:</span><span class="right__span"><span id="current-buouancy"></span>
                         g</span>
+                    </div>
+                    <div class="buoyancy__actual trimmed-block">
+                        <span class="first-part-of-text">Trimmed buoyancy:</span>
+                        <span class="right__span">
+                            <span id="trimmed-buouancy"></span>
+                            g
+                        </span>
+                    </div>
                 </div>
-                <div class="ballast"><span id="ballastMove">Remove ballast:</span>
+                <div class="ballast"><span class="first-part-of-text" id="ballastMove">Remove ballast:</span>
                     <div id="no_go_ballast" class="details">
                         <div class="detail"> <span class="right__span3"><span id="detail61"></span> x 65g</span><img
                                 src="./assets/images/icons/detail.svg" alt=""></div>
