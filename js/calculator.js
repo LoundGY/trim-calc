@@ -230,7 +230,6 @@ let Seacraft = {
       scooter_buoyancy_with_acces =
         Number(scooter_buoyancy) + Number(acc_buoyancy);
     let currentBuoy = scooter_weight_with_acces - scooter_buoyancy_with_acces;
-    console.log(currentBuoy, configs.A.currentBuoyancy);
     if (activeConfig === 'B') {
       currentBuoy += configs.A.currentBuoyancy;
     }
@@ -280,7 +279,6 @@ let Seacraft = {
       $('#ballastMove').text(words.Add_ballast);
     } else {
       $('#ballastMove').text(words.Remove_ballast);
-      console.log('qwe');
     }
     $('#detail61').text(Math.abs(internal1mmPlates));
     $('#detail200').text(Math.abs(internal3mmPlates));
@@ -402,6 +400,7 @@ let Seacraft = {
       } else {
         $('#no_go_ballast').css('display', 'none');
         $('#go_ballast').css('display', 'flex');
+        $('.button[data-point="1"]').click();
         $('.button[data-point="2"]').hide();
       }
 
