@@ -90,7 +90,7 @@ const models = JSON.parse(
 );
 const words = JSON.parse(
   $.getJSON({ url: '../data/words.json', async: false }).responseText
-);
+)[language];
 const acces = JSON.parse(
   $.getJSON({ url: '../data/accessories.json', async: false }).responseText
 );
@@ -166,12 +166,14 @@ let Seacraft = {
       }
       configs[activeConfig] = config;
       if (activeConfig === 'B') {
-        $('.trimmed-block').css('display', 'flex');
+        /* 
+        $('.trimmed-block').css('display', 'flex'); */
         $('#trimmed-buouancy').text(
           configs.A.currentBuoyancy ? configs.A.currentBuoyancy : 0
         );
       } else {
-        $('.trimmed-block').css('display', 'none');
+        /* 
+        $('.trimmed-block').css('display', 'none'); */
       }
     },
   },
@@ -228,6 +230,7 @@ let Seacraft = {
       scooter_buoyancy_with_acces =
         Number(scooter_buoyancy) + Number(acc_buoyancy);
     let currentBuoy = scooter_weight_with_acces - scooter_buoyancy_with_acces;
+    console.log(currentBuoy, configs.A.currentBuoyancy);
     if (activeConfig === 'B') {
       currentBuoy += configs.A.currentBuoyancy;
     }
@@ -257,7 +260,7 @@ let Seacraft = {
       if (foamPieces > 3) {
         foamPieces = 3;
       }
-      if (foamPieces > 0 && active_scooter_id < 2) {
+      if (false && foamPieces > 0 && active_scooter_id < 2) {
         $('#foam-block').html('');
         $('#foam-block').append(
           '<span class="first-part-of-text">Or add:</span><div class="foam-parts"><div class="foam__quan"><span id="foam-weight"></span>g (<span id="foam-quan"></span>/3)</div><img src="../assets/images/icons/foam.png" alt=""><div class="foam__with">foam with</div><img src="../assets/images/icons/belt.png" alt=""></div>'
@@ -277,6 +280,7 @@ let Seacraft = {
       $('#ballastMove').text(words.Add_ballast);
     } else {
       $('#ballastMove').text(words.Remove_ballast);
+      console.log('qwe');
     }
     $('#detail61').text(Math.abs(internal1mmPlates));
     $('#detail200').text(Math.abs(internal3mmPlates));
@@ -369,6 +373,7 @@ let Seacraft = {
       $('.accessories')
         .find('.accessories__items')
         .removeClass('active-access');
+      Seacraft.countBuoyancy();
     },
     select: function (scooter) {
       $('#modelIMG').remove();
@@ -393,9 +398,11 @@ let Seacraft = {
       if (scooter < 2) {
         $('#no_go_ballast').css('display', 'flex');
         $('#go_ballast').css('display', 'none');
+        $('.button[data-point="2"]').show();
       } else {
         $('#no_go_ballast').css('display', 'none');
         $('#go_ballast').css('display', 'flex');
+        $('.button[data-point="2"]').hide();
       }
 
       Seacraft.config.saveConfig();

@@ -523,11 +523,11 @@ input {
   left: 0;
 }
 .mainBlock__scooter .scooter-points .buttons {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 209px;
-  height: 222px;
+  gap: 20px;
 }
 @media (max-width: 1320px) {
   .mainBlock__scooter .scooter-points .buttons {
@@ -589,10 +589,12 @@ input {
 }
 .mainBlock__scooter .button {
   text-align: center;
+  outline: none;
+  border: none;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  width: 209px;
+  width: 100%;
   height: 58px;
   background: #ffffff;
   cursor: pointer;
