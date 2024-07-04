@@ -14,29 +14,29 @@
     <div class="header"></div>
     <div class="mainBlock">
         <div class="mainBlock__head">
-            <div class="title">Seacraft DPV balance calculator</div>
+            <div id="words-title" class="title"></div>
             <div class="top-buttons">
-                <button id="selectA" class="top-buttons__button active">My DPV is trimmed in this configuration</button>
-                <button id="selectB" class="top-buttons__button">Cancel</button>
+                <button id="selectA" class="top-buttons__button active"></button>
+                <button id="selectB" class="top-buttons__button"></button>
             </div>
         </div>
         <div id="howtouse" class="howtouse">
-            <div class="howtouse__title">How to use the calculator?</div>
+            <div class="howtouse__title"></div>
             <div class="howtouse__icon">?</div>
         </div>
         <div class="mainBlock__parameters">
             <div class="left">
                 <div class="model">
-                    <span class="model__main">Model:</span>
+                    <span class="model__main"></span>
                     <div id="models" class="models">
                     </div>
 
                 </div>
                 <div class="waterParam">
-                    <span>Water parameters:</span>
+                    <span></span>
                     <div class="selectboxss">
                         <div class="selectboxssvalue"><input id="currentSea" readonly value="Water"></input><img
-                                src="./assets/images/icons/arrow.svg" class="arrowselect" />
+                                src="/trim-calculator-template/assets/images/icons/arrow.svg" class="arrowselect" />
                         </div>
                         <ul id="seas" class="selectboxssmenu">
                         </ul>
@@ -44,42 +44,35 @@
                 </div>
                 <div class="params">
                     <div class="waterParameters">
-                        <span>Salt:</span><input id="seaSalt" class="waterParameters__input" type="text"><span>‰</span>
+                        <span></span><input id="seaSalt" class="waterParameters__input" type="text"><span>‰</span>
                     </div>
                     <div class="waterParameters">
-                        <span>Temp.:</span><input id="seaTemp" class="waterParameters__input"
+                        <span></span><input id="seaTemp" class="waterParameters__input"
                             type="text"><span>°C</span>
                     </div>
                 </div>
             </div>
             <div class="right">
-                <div class="weight"><span class="first-part-of-text">Dry weight of DPV:</span><span class="right__span"><span id="scooter-weight"></span>
-                        kg</span><span class="right__span2">(Neutral buoyancy in fresh water)</span></div>
+                <div class="weight"><span class="first-part-of-text"></span><span class="right__span"><span id="scooter-weight"></span>
+                        kg</span><span class="right__span2"></span></div>
                 <div class="buoyancy">
                     <div class="buoyancy__actual">
-                        <span class="first-part-of-text">Current buoyancy:</span><span class="right__span"><span id="current-buouancy"></span>
+                        <span id="current-buoyancy" class="first-part-of-text"></span><span class="right__span"><span id="current-buouancy"></span>
                         g</span>
                     </div>
-                    <div class="buoyancy__actual trimmed-block">
-                        <span class="first-part-of-text">Trimmed buoyancy:</span>
-                        <span class="right__span">
-                            <span id="trimmed-buouancy"></span>
-                            g
-                        </span>
-                    </div>
                 </div>
-                <div class="ballast"><span class="first-part-of-text" id="ballastMove">Remove ballast:</span>
+                <div class="ballast"><span class="first-part-of-text" id="ballastMove"></span>
                     <div id="no_go_ballast" class="details">
                         <div class="detail"> <span class="right__span3"><span id="detail61"></span> x 65g</span><img
-                                src="./assets/images/icons/detail.svg" alt=""></div>
+                                src="/trim-calculator-template/assets/images/icons/detail.svg" alt=""></div>
                         <div class="detail">
                             <span class="right__span3"><span id="detail200"></span> x 200g</span><img
-                                src="./assets/images/icons/detail.svg" alt="">
+                                src="/trim-calculator-template/assets/images/icons/detail.svg" alt="">
                         </div>
                     </div>
                     <div id="go_ballast" class="details">
                         <div class="detail"> <span class="right__span3"><span id="detail52"></span> x 52.5g</span><img
-                                src="./assets/images/icons/detail.svg" alt=""></div>
+                                src="/trim-calculator-template/assets/images/icons/detail.svg" alt=""></div>
                     </div>
                 </div>
                 <div id="foam-block" class="foam">
@@ -94,17 +87,17 @@
                 <div id="accesory" data-accesory></div>
             </div>
             <div class="scooter-points">
-                <div class="title">Choose mounting point:</div>
+                <div class="title"></div>
                 <div class="buttons">
-                    <button class="button active-btn" data-point="1">Mounting point 1</button>
-                    <button class="button" data-point="2">Mounting point 2</button>
-                    <button class="button" data-point="3">Mounting point 3</button>
+                    <button class="button active-btn" data-point="1"></button>
+                    <button class="button" data-point="2"></button>
+                    <button class="button" data-point="3"></button>
                 </div>
-                <div id="reset" class="reset">Reset all</div>
+                <div id="reset" class="reset"></div>
             </div>
         </div>
         <div class="mainblock__accessories">
-            <div class="title"> Accessories:</div>
+            <div id="accessories-title" class="title"></div>
             <div id="accessories1" data-access="1" class="accessories accessories_active" data-scrollbar>
             </div>
             <div id="accessories2" data-access="2" class="accessories" data-scrollbar>
@@ -117,7 +110,7 @@
     <script src="./js/perfect-scrollbar.js" type="text/javascript" defer> </script>
     <script src="./js/tippy/1.js" type="text/javascript" defer></script>
     <script src="./js/tippy/2.js" type="text/javascript" defer></script>
-    <script src="./js/language.js" type="text/javascript" defer></script>
+    <script src="./js/lang-en.js" type="text/javascript" defer></script>
     <script src="./js/calculator.js" type="text/javascript" defer></script>
 </body>
 

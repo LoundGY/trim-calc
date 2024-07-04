@@ -42,26 +42,6 @@
 })(jQuery);
 $(document).ready(function () {
   Seacraft.init();
-  if ($(window).width() < 705) {
-    $('.button:eq(0)').text('point 1');
-    $('.button:eq(1)').text('point 2');
-    $('.button:eq(2)').text('point 3');
-  } else {
-    $('.button:eq(0)').text('Mounting point 1');
-    $('.button:eq(1)').text('Mounting point 2');
-    $('.button:eq(2)').text('Mounting point 3');
-  }
-  $(window).resize(function () {
-    if ($(window).width() < 705) {
-      $('.button:eq(0)').text('point 1');
-      $('.button:eq(1)').text('point 2');
-      $('.button:eq(2)').text('point 3');
-    } else {
-      $('.button:eq(0)').text('Mounting point 1');
-      $('.button:eq(1)').text('Mounting point 2');
-      $('.button:eq(2)').text('Mounting point 3');
-    }
-  });
 });
 
 new PerfectScrollbar('#accessories1', {
@@ -86,16 +66,16 @@ new PerfectScrollbar('#accessories3', {
   wheelSpeed: 0.5,
 });
 const models = JSON.parse(
-  $.getJSON({ url: '../data/models.json', async: false }).responseText
+  $.getJSON({ url: '/trim-calculator-template/data/models.json', async: false }).responseText
 );
 const words = JSON.parse(
-  $.getJSON({ url: '../data/words.json', async: false }).responseText
+  $.getJSON({ url: '/trim-calculator-template/data/words.json', async: false }).responseText
 )[language];
 const acces = JSON.parse(
-  $.getJSON({ url: '../data/accessories.json', async: false }).responseText
+  $.getJSON({ url: '/trim-calculator-template/data/accessories.json', async: false }).responseText
 );
 const seas = JSON.parse(
-  $.getJSON({ url: '../data/sea.json', async: false }).responseText
+  $.getJSON({ url: '/trim-calculator-template/data/sea.json', async: false }).responseText
 );
 let brackets = [[], [], []];
 let activeConfig = 'A';
@@ -259,10 +239,11 @@ let Seacraft = {
       if (foamPieces > 3) {
         foamPieces = 3;
       }
+      //foam delete
       if (false && foamPieces > 0 && active_scooter_id < 2) {
         $('#foam-block').html('');
         $('#foam-block').append(
-          '<span class="first-part-of-text">Or add:</span><div class="foam-parts"><div class="foam__quan"><span id="foam-weight"></span>g (<span id="foam-quan"></span>/3)</div><img src="../assets/images/icons/foam.png" alt=""><div class="foam__with">foam with</div><img src="../assets/images/icons/belt.png" alt=""></div>'
+          '<span class="first-part-of-text">Or add:</span><div class="foam-parts"><div class="foam__quan"><span id="foam-weight"></span>g (<span id="foam-quan"></span>/3)</div><img src="/trim-calculator-template/assets/images/icons/foam.png" alt=""><div class="foam__with">foam with</div><img src="/trim-calculator-template/assets/images/icons/belt.png" alt=""></div>'
         );
         $('#foam-quan').text(foamPieces);
         $('#foam-weight').text(35 * foamPieces - 20);
@@ -381,12 +362,11 @@ let Seacraft = {
           src: '../' + models[scooter].img,
         })
       );
-      $('#scooter-weight').text(models[scooter].weight);
       Seacraft.accessories.load(scooter);
       $('#model').empty();
       $('#bracket').empty();
       $('#accesory').empty();
-      $('#scooter-weight').text(models[scooter].weight);
+      $('#scooter-weight').text(new Intl.NumberFormat(language).format(models[scooter].weight));
       $('#model').append(
         $('<img>', {
           id: 'modelIMG',
@@ -430,7 +410,7 @@ let Seacraft = {
                   '</a>'
                 : '');
             let acs =
-              '<div class="items-image"><img src="../assets/images/accessory/icons/' +
+              '<div class="items-image"><img src="/trim-calculator-template/assets/images/accessory/icons/' +
               el.img +
               '.png" alt=""></div><div div class="items-name"><span>' +
               el[language + 'Name'] +
@@ -552,7 +532,7 @@ let Seacraft = {
               'data-id': id,
               'data-point': point,
               src:
-                '../assets/images/accessory/models/' +
+                '/trim-calculator-template/assets/images/accessory/models/' +
                 $('.models').find('.model__active').attr('data-id') +
                 '/bracket/point' +
                 point +
@@ -611,7 +591,9 @@ let Seacraft = {
                 ).remove();
               } else {
                 let htmlTool =
-                  '<div class="title-tool">Select a bracket first for this accessory</div>';
+                  '<div class="title-tool">' +
+                  words.words.selectBracket +
+                  '</div>';
                 tippy(elems[0], {
                   arrow: false,
                   content: htmlTool,
@@ -677,7 +659,7 @@ let Seacraft = {
                   'data-id': id,
                   'data-point': point,
                   src:
-                    '../assets/images/accessory/models/' +
+                    '/trim-calculator-template/assets/images/accessory/models/' +
                     $('.models').find('.model__active').attr('data-id') +
                     path +
                     'point' +
@@ -714,7 +696,7 @@ let Seacraft = {
                   'data-id': id,
                   'data-point': point,
                   src:
-                    '../assets/images/accessory/models/' +
+                    '/trim-calculator-template/assets/images/accessory/models/' +
                     $('.models').find('.model__active').attr('data-id') +
                     path +
                     'point' +
@@ -732,7 +714,7 @@ let Seacraft = {
                 'data-id': id,
                 'data-point': point,
                 src:
-                  '../assets/images/accessory/models/' +
+                  '/trim-calculator-template/assets/images/accessory/models/' +
                   $('.models').find('.model__active').attr('data-id') +
                   path +
                   'point' +
@@ -804,7 +786,7 @@ let Seacraft = {
                 'data-id': id,
                 'data-point': point,
                 src:
-                  '../assets/images/accessory/models/' +
+                  '/trim-calculator-template/assets/images/accessory/models/' +
                   $('.models').find('.model__active').attr('data-id') +
                   path +
                   'point' +
@@ -842,7 +824,7 @@ let Seacraft = {
                 'data-id': id,
                 'data-point': point,
                 src:
-                  '../assets/images/accessory/models/' +
+                  '/trim-calculator-template/assets/images/accessory/models/' +
                   $('.models').find('.model__active').attr('data-id') +
                   path +
                   'point' +
@@ -860,7 +842,7 @@ let Seacraft = {
               'data-id': id,
               'data-point': point,
               src:
-                '../assets/images/accessory/models/' +
+                '/trim-calculator-template/assets/images/accessory/models/' +
                 $('.models').find('.model__active').attr('data-id') +
                 path +
                 'point' +
@@ -888,34 +870,11 @@ let Seacraft = {
     }).appendTo('.modal');
     $('<div />', {
       class: 'htuCard__title',
-      html: 'How to use this form?',
+      html: words.how.title,
     }).appendTo('.htuCard');
     $('<div />', {
       class: 'htuCard__text',
-      html: `<p>The Seacraft balance calculator was designed to assist you in determining the right trim for your DPV with and without accessories.
-            Please remember, that you DPV's trim depends on the salinityand temperature of the waters you are diving in, and on the positioning of the accessories. These factors are taken into account.</p>
-            
-            <p>Please note, that this calculator is based on some simple assumptions and maybe cannot simulate your specific configuration.
-            Please do also note, that trimming a DPV is no rocket science, but it will depend largely on you personal preference and dive plan. Some divers prefer a slightly positive trim, others a slightly negative one.
-            Hence, always check the correct trim of your DPV BEFORE you dive.
-            This tool will support you in developping a hunch for your personal "right trim".</p>
-            
-            <p>To use the calculator, please proceed as follows:</p>
-            
-            <p>1. Select your Seacraft DPV model.</p>
-            <p>2. Select the waters you are going to dive in.
-            You may select one of the presets or enter your custom value for the salinity.</p>
-            <p>3. Enter the approx. water temperature (for the depth level, you will spend most of your diving time on).</p>
-            <p>4. If you are using accessory components on your DPV, select one of the pre-defined mounting points, then select the Seacraft accessory shown at the bottom of the screen.
-                Repeat this step as required for other accessory components.</p>
-            
-                <p>In the right upper corner, you will now see the expected buoyancy of yor DPV and information on how much trimming weight to remove or to add.
-            Remember, that the 1mm trimming weights can be easily cut with scissors, in case you need to make very small adjustments.</p>
-            
-            <p>Please note, that this version of the calculator does not take into account the battery and trimming weight positions inside the DPV.
-            Since these positions are variable, it might give you more flexibility when choosing the right mounting point for your purposes.</p>
-            
-            <p>We wish you much fun and success trimming your DPV according to your personal requirements, and look forward to your comments, suggestions and feedback regarding this calculator.</p>`,
+      html: words.how.about,
     }).appendTo('.htuCard');
     $('<div />', {
       class: 'htuCard__сlose',
@@ -929,6 +888,47 @@ let Seacraft = {
       var container = $('.modal');
       if (container.has(e.target).length === 0) {
         $('.modal').remove();
+      }
+    });
+  },
+  translate: function () {
+    const translatedWords = words.words;
+    $('#words-title').text(translatedWords.title);
+    $('#selectA').text(translatedWords.isTrimmed);
+    $('#selectB').text(translatedWords.cancel);
+    $('.howtouse__title').text(translatedWords.howToUse);
+    $('.model__main').text(translatedWords.model);
+    $('.waterParam span').text(translatedWords.waterParameters);
+    $('.waterParameters').eq(0).find('span').eq(0).text(translatedWords.salt);
+    $('.waterParameters').eq(1).find('span').eq(0).text(translatedWords.temp);
+    $('.weight .first-part-of-text').text(translatedWords['Dry weight of DPV']);
+    $('.weight .right__span2').text(
+      translatedWords['Neutral buoyancy in fresh water']
+    );
+    $('#ballastMove').text(translatedWords['Remove ballast']);
+    $('.scooter-points .title').text(translatedWords['Choose mounting point']);
+    $('#reset').text(translatedWords['Reset all']);
+    $('#current-buoyancy').text(translatedWords['Current buoyancy']);
+    $('#accessories-title').text(translatedWords['Accessories']);
+
+    if ($(window).width() < 705) {
+      $('.button:eq(0)').text(translatedWords['point'] + ' 1');
+      $('.button:eq(1)').text(translatedWords['point'] + ' 2');
+      $('.button:eq(2)').text(translatedWords['point'] + ' 3');
+    } else {
+      $('.button:eq(0)').text(translatedWords['Mounting point'] + ' 1');
+      $('.button:eq(1)').text(translatedWords['Mounting point'] + ' 2');
+      $('.button:eq(2)').text(translatedWords['Mounting point'] + ' 3');
+    }
+    $(window).resize(function () {
+      if ($(window).width() < 705) {
+        $('.button:eq(0)').text(translatedWords['point'] + ' 1');
+        $('.button:eq(1)').text(translatedWords['point'] + ' 2');
+        $('.button:eq(2)').text(translatedWords['point'] + ' 3');
+      } else {
+        $('.button:eq(0)').text(translatedWords['Mounting point'] + ' 1');
+        $('.button:eq(1)').text(translatedWords['Mounting point'] + ' 2');
+        $('.button:eq(2)').text(translatedWords['Mounting point'] + ' 3');
       }
     });
   },
@@ -948,5 +948,6 @@ let Seacraft = {
       $(this).removeClass('active');
       Seacraft.config.selectConfig('A');
     });
+    Seacraft.translate();
   },
 };

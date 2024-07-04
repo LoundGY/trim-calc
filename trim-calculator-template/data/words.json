@@ -1,0 +1,86 @@
+{
+  "en": {
+    "Add_ballast": "Add ballast",
+    "Remove_ballast": "Remove ballast",
+    "how": {
+      "title": "How to use this form?",
+      "about": "Read our article about DPV trimming for full description: <a href=\"https://support.seacraft.eu/knowledge-base/dpv-trimming-and-balancing/\" target=\"_blank\">https://support.seacraft.eu/knowledge-base/dpv-trimming-and-balancing/</a><br><br>Quick start:<br>1. Select your Seacraft DPV model. Calculator will assume that DPV is trimmed ‘out of the box’ – factory trim conditions.<br>2. Select the waters you are going to dive in. You may select one of the presets or enter your custom value for the salinity.<br>3. Enter the approx. water temperature (for the depth level, you will spend most of your diving time on).<br>4. If you are using accessory components on your DPV, select one of the pre-defined mounting points, then select the Seacraft accessory shown at the bottom of the screen. Repeat this step as required for other accessory components.<br>In the right upper corner, you will now see the expected buoyancy of your DPV and information on how many trim weights to remove or to add. Remember, that the 1mm trimming weights can be easily cut with scissors, in case you need to make very small adjustments.<br>Please note, that this version of the calculator does not take into account the battery and trimming weight positions inside the DPV.<br>5. If your DPV is already trimmed in some conditions, and you are changing dive environment (for example from salt water to fresh water), choose the water and configuration that DPV is trimmed in, and click ‘My DPV is trimmed in this configuration’. Now, you can choose target parameters/target configuration and see what changes are needed."
+    },
+    "words": {
+      "title": "Seacraft DPV balance calculator",
+      "isTrimmed": "My DPV is trimmed in this configuration",
+      "cancel": "Cancel",
+      "howToUse": "How to use the calculator?",
+      "model": "Model:",
+      "waterParameters": "Water parameters:",
+      "salt": "Salt:",
+      "temp": "Temp:",
+      "Dry weight of DPV": "Dry weight of DPV:",
+      "Neutral buoyancy in fresh water": "(Neutral buoyancy in fresh water)",
+      "Remove ballast": "Remove ballast:",
+      "Current buoyancy": "Current buoyancy:",
+      "Choose mounting point": "Choose mounting point:",
+      "Mounting point": "Mounting point",
+      "point": "point",
+      "Reset all": "Reset all",
+      "Accessories": "Accessories:",
+      "selectBracket": "Select a bracket first for this accessory"
+    }
+  },
+  "pl": {
+    "Add_ballast": "Dodaj balast",
+    "Remove_ballast": "Usuń balast",
+    "how": {
+      "title": "Jak korzystać z tego formularza?",
+      "about": "Przeczytaj nasz artykuł o przycinaniu DPV, aby uzyskać pełny opis: <a href=\"https://support.seacraft.eu/knowledge-base/dpv-trimming-and-balancing/\" target=\"_blank\">https://support.seacraft.eu/knowledge-base/dpv-trimming-and-balancing/</a><br><br>Szybki start:<br>1. Wybierz model Seacraft DPV. Kalkulator zakłada, że DPV jest wyregulowany „prosto z pudełka” – w warunkach fabrycznych.<br>2. Wybierz wody, w których będziesz nurkować. Możesz wybrać jeden z ustawień wstępnych lub wprowadzić własną wartość zasolenia.<br>3. Wprowadź przybliżoną temperaturę wody (dla głębokości, na której będziesz spędzać większość czasu nurkowania).<br>4. Jeśli używasz komponentów dodatkowych na swoim DPV, wybierz jeden z predefiniowanych punktów montażowych, a następnie wybierz akcesorium Seacraft pokazane na dole ekranu. Powtórz ten krok w razie potrzeby dla innych komponentów dodatkowych.<br>W prawym górnym rogu zobaczysz przewidywaną pływalność swojego DPV oraz informację, ile ciężarków trymujących należy usunąć lub dodać. Pamiętaj, że ciężarki trymujące o grubości 1 mm można łatwo przyciąć nożyczkami, jeśli potrzebne są bardzo małe regulacje.<br>Należy pamiętać, że ta wersja kalkulatora nie uwzględnia pozycji akumulatora i ciężarków trymujących wewnątrz DPV.<br>5. Jeśli Twój DPV jest już wyregulowany w pewnych warunkach, a zmieniasz środowisko nurkowania (np. z wody słonej na słodką), wybierz wodę i konfigurację, w której DPV jest wyregulowany, i kliknij „Mój DPV jest wyregulowany w tej konfiguracji”. Teraz możesz wybrać docelowe parametry/docelową konfigurację i zobaczyć, jakie zmiany są potrzebne."
+    },
+    "words": {
+      "title": "Kalkulator równowagi DPV Seacraft",
+      "isTrimmed": "Mój DPV jest wyregulowany w tej konfiguracji",
+      "cancel": "Anuluj",
+      "howToUse": "Jak korzystać z kalkulatora?",
+      "model": "Model:",
+      "waterParameters": "Parametry wody:",
+      "salt": "Sól:",
+      "temp": "Temp:",
+      "Dry weight of DPV": "Sucha waga DPV:",
+      "Neutral buoyancy in fresh water": "(Neutralna pływalność w słodkiej wodzie)",
+      "Remove ballast": "Usuń balast:",
+      "Current buoyancy": "Aktualna pływalność:",
+      "Choose mounting point": "Wybierz punkt montażowy:",
+      "Mounting point": "Punkt montażowy",
+      "point": "punkt",
+      "Reset all": "Zresetuj wszystko",
+      "Accessories": "Akcesoria:",
+      "selectBracket": "Najpierw wybierz uchwyt dla tego akcesorium"
+    }
+  },
+  "de": {
+    "Add_ballast": "Ballast hinzufügen",
+    "Remove_ballast": "Ballast entfernen",
+    "how": {
+      "title": "Wie benutzt man dieses Formular?",
+      "about": "Lesen Sie unseren Artikel über das Trimmen von DPV für eine vollständige Beschreibung: <a href=\"https://support.seacraft.eu/knowledge-base/dpv-trimming-and-balancing/\" target=\"_blank\">https://support.seacraft.eu/knowledge-base/dpv-trimming-and-balancing/</a><br><br>Schnellstart:<br>1. Wählen Sie Ihr Seacraft DPV-Modell aus. Der Rechner geht davon aus, dass das DPV „out of the box“ getrimmt ist – Werksbedingungen.<br>2. Wählen Sie die Gewässer aus, in denen Sie tauchen werden. Sie können eine der Voreinstellungen auswählen oder Ihren eigenen Wert für den Salzgehalt eingeben.<br>3. Geben Sie die ungefähre Wassertemperatur ein (für die Tiefe, auf der Sie die meiste Zeit Ihrer Tauchzeit verbringen).<br>4. Wenn Sie Zubehörkomponenten an Ihrem DPV verwenden, wählen Sie einen der vordefinierten Montagepunkte aus und wählen Sie dann das Seacraft-Zubehör aus, das unten auf dem Bildschirm angezeigt wird. Wiederholen Sie diesen Schritt nach Bedarf für andere Zubehörkomponenten.<br>In der oberen rechten Ecke sehen Sie nun den erwarteten Auftrieb Ihres DPV und Informationen darüber, wie viele Trimmgewichte entfernt oder hinzugefügt werden müssen. Denken Sie daran, dass die 1-mm-Trimmgewichte bei Bedarf leicht mit einer Schere zugeschnitten werden können.<br>Bitte beachten Sie, dass diese Version des Rechners die Position der Batterie und der Trimmgewichte im DPV nicht berücksichtigt.<br>5. Wenn Ihr DPV bereits unter bestimmten Bedingungen getrimmt ist und Sie die Tauchumgebung ändern (z. B. von Salzwasser auf Süßwasser), wählen Sie das Wasser und die Konfiguration aus, in der das DPV getrimmt ist, und klicken Sie auf „Mein DPV ist in dieser Konfiguration getrimmt“. Jetzt können Sie Zielparameter/Zielkonfiguration auswählen und sehen, welche Änderungen erforderlich sind."
+    },
+    "words": {
+      "title": "Seacraft DPV-Balance-Rechner",
+      "isTrimmed": "Mein DPV ist in dieser Konfiguration getrimmt",
+      "cancel": "Abbrechen",
+      "howToUse": "Wie benutzt man den Rechner?",
+      "model": "Modell:",
+      "waterParameters": "Wasserparameter:",
+      "salt": "Salz:",
+      "temp": "Temp:",
+      "Dry weight of DPV": "Trockenes Gewicht des DPV:",
+      "Neutral buoyancy in fresh water": "(Neutraler Auftrieb im Süßwasser)",
+      "Remove ballast": "Ballast entfernen:",
+      "Current buoyancy": "Aktueller Auftrieb:",
+      "Choose mounting point": "Montagepunkt wählen:",
+      "Mounting point": "Montagepunkt",
+      "point": "Punkt",
+      "Reset all": "Alles zurücksetzen",
+      "Accessories": "Zubehör:",
+      "selectBracket": "Wählen Sie zuerst eine Halterung für dieses Zubehör aus"
+    }
+  }
+}

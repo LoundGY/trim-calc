@@ -120,6 +120,7 @@ input {
   font-size: 18px;
   color: #707070;
   margin-top: 40px;
+  line-height: 1;
   zoom: 80%;
 }
 .mainBlock input {
@@ -177,10 +178,11 @@ input {
   margin-top: 30px;
   margin-left: auto;
   display: flex;
-  width: 304px;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-items: center;
   justify-content: space-between;
-  height: 36px;
-  line-height: 36px;
+  gap: 20px;
   font-weight: bold;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -597,8 +599,8 @@ input {
   width: 100%;
   height: 58px;
   background: #ffffff;
+  color: #000000;
   cursor: pointer;
-  line-height: 58px;
   font-weight: 500;
   border-radius: 39px;
   box-shadow: 0px 0px 7px #838282;
@@ -727,6 +729,7 @@ input {
 }
 .mainblock__accessories .items-name a {
   color: #000000;
+  text-decoration: underline;
 }
 .mainblock__accessories .items-name a:hover {
   color: #707070;
